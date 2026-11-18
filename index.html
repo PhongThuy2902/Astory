@@ -34,6 +34,8 @@ nav.solid{background:rgba(17,17,17,.94);backdrop-filter:blur(10px);border-color:
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:78px}
 .logo{font:600 1.7rem/1 var(--serif);letter-spacing:.32em}
 .logo i{color:var(--gold);font-style:normal}
+.logo{display:flex;flex-direction:column;gap:7px}
+.logo small{font:600 .52rem/1 var(--sans);letter-spacing:.2em;color:var(--grey);white-space:nowrap}
 .links{display:flex;gap:34px;align-items:center}
 .links a.l{font-size:.74rem;letter-spacing:.18em;font-weight:600;position:relative;padding:6px 0}
 .links a.l::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .3s}
@@ -242,7 +244,7 @@ function Nav() {
   const items = [['home', 'Home'], ['menu', 'Menü'], ['story', 'Our Story'], ['location', 'Standort'], ['contact', 'Kontakt']];
   const click = id => e => { setOpen(false); go(id)(e); };
   return html`<nav className=${solid || open ? 'solid' : ''} aria-label="Hauptnavigation"><div className="wrap nav-in">
-    <a href="#home" className="logo" onClick=${click('home')} aria-label=${BRAND.name + ' Startseite'}>${BRAND.name.slice(0, -1)}<i>${BRAND.name.slice(-1)}</i></a>
+    <a href="#home" className="logo" onClick=${click('home')} aria-label=${BRAND.name + ' Startseite'}><span>${BRAND.name.slice(0, -1)}<i>${BRAND.name.slice(-1)}</i></span><small>A TASTE OF ASIA. A STORY TO SHARE.</small></a>
     <button className=${'burger' + (open ? ' open' : '')} aria-label="Menü öffnen" aria-expanded=${open} aria-controls="links" onClick=${() => setOpen(!open)}><span/><span/><span/></button>
     <div id="links" className=${'links' + (open ? ' open' : '')}>
       ${items.map(([id, t]) => html`<a key=${id} className="l" href=${'#' + id} onClick=${click(id)}>${t.toUpperCase()}</a>`)}
