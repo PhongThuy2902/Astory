@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Astory – Korean Fried Chicken in Berlin</title>
+<meta name="description" content="Astory: Koreanisches Fried Chicken in Berlin. Knusprig, würzig, mit Seoul-Inspiration. Jetzt Menü entdecken und bestellen.">
+<meta property="og:title" content="Astory – Korean Crunch. Berlin Soul.">
+<meta property="og:description" content="Koreanisches Fried Chicken in Berlin.">
+<meta property="og:locale" content="de_DE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#111111;--white:#F5F2EB;--gold:#C9A45C;--grey:#77736C;--line:rgba(245,242,235,.14);--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--black);color:var(--white);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--black);z-index:60}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+section{padding:clamp(72px,11vw,150px) 0}
+.light{background:var(--white);color:var(--black)}
+.btn{display:inline-block;font:600 .78rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:18px 30px;border:1px solid var(--gold);cursor:pointer;transition:background .3s,color .3s,transform .3s;background:none;color:var(--white)}
+.btn.gold{background:var(--gold);color:var(--black)}
+.btn.gold:hover{background:var(--white);border-color:var(--white)}
+.btn.ghost:hover{background:var(--gold);color:var(--black)}
+.light .btn.ghost{color:var(--black)}
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.solid{background:rgba(17,17,17,.94);backdrop-filter:blur(10px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font:600 1.7rem/1 var(--serif);letter-spacing:.32em}
+.logo i{color:var(--gold);font-style:normal}
+.links{display:flex;gap:34px;align-items:center}
+.links a.l{font-size:.74rem;letter-spacing:.18em;font-weight:600;position:relative;padding:6px 0}
+.links a.l::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .3s}
+.links a.l:hover::after{width:100%}
+.links .btn{padding:14px 22px}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--white)}
+.burger span{display:block;width:26px;height:1.5px;background:currentColor;margin:6px auto;transition:transform .3s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media(max-width:900px){
+.burger{display:block}
+.links{position:fixed;inset:calc(78px + env(safe-area-inset-top,0px)) 0 0 0;background:var(--black);flex-direction:column;justify-content:center;gap:30px;transform:translateX(100%);transition:transform .4s;padding:24px}
+.links.open{transform:none}
+.links a.l{font-size:1.1rem}
+}
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden;background:radial-gradient(70% 60% at 72% 50%,#241d12 0%,var(--black) 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(3.2rem,8.4vw,7.2rem);letter-spacing:-.01em}
+.hero p.sub{font-size:1.1rem;color:#cfc9bc;max-width:30em;margin:28px 0 40px}
+.hero .tag{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem;margin-bottom:22px}
+.cta{display:flex;gap:16px;flex-wrap:wrap}
+.hero-art{position:relative;aspect-ratio:1;width:100%;max-width:560px;justify-self:center;animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+.stamp{position:absolute;right:2%;bottom:6%;width:112px;height:112px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;text-align:center;font:italic 500 1rem/1.1 var(--serif);color:var(--gold);background:rgba(17,17,17,.7)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-art{max-width:380px;order:-1}.hero{padding-top:104px}}
+/* menu */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.head h2{font-size:clamp(2.4rem,5.5vw,4.4rem)}
+.note{font-size:.82rem;color:var(--grey);max-width:34em;margin:0}
+.filters{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;margin-bottom:44px;scrollbar-width:none}
+.filters::-webkit-scrollbar{display:none}
+.chip{flex:none;font:600 .72rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:14px 20px;border:1px solid rgba(17,17,17,.25);background:none;color:var(--black);cursor:pointer;transition:all .25s}
+.chip:hover{border-color:var(--black)}
+.chip[aria-pressed=true]{background:var(--black);color:var(--gold);border-color:var(--black)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:28px}
+.card{background:var(--black);color:var(--white);display:flex;flex-direction:column;animation:fade .5s both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ph{aspect-ratio:4/3.4;background:radial-gradient(circle at 50% 45%,#2b2418,#161412 75%);position:relative;overflow:hidden}
+.ph svg,.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph svg,.card:hover .ph img{transform:scale(1.07)}
+.badge{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--black);font:700 .66rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 12px}
+.card-b{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.card h3{font-size:1.7rem}
+.price{font:600 1.15rem var(--serif);color:var(--gold);white-space:nowrap}
+.card p{margin:0;font-size:.9rem;color:#bdb7aa}
+.ex{margin-top:auto;padding-top:10px;font-size:.68rem;letter-spacing:.1em;color:var(--grey)}
+/* story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,7vw,100px);align-items:center}
+.story h2{font-size:clamp(2.6rem,6vw,5rem)}
+.story p{color:#cfc9bc;font-size:1.05rem;margin:0 0 1.2em;max-width:34em}
+.story .big{font:italic 500 clamp(1.5rem,2.6vw,2.1rem)/1.3 var(--serif);color:var(--gold)}
+@media(max-width:800px){.story{grid-template-columns:1fr}}
+/* why */
+.why{background:#181715}
+.three{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.f{padding:44px 34px 12px 0;border-right:1px solid var(--line);margin-right:34px}
+.f:last-child{border:0;margin:0}
+.f svg{width:44px;height:44px;stroke:var(--gold);fill:none;stroke-width:1.2;margin-bottom:26px}
+.f h3{font-size:1.9rem;margin-bottom:12px}
+.f p{margin:0;color:#bdb7aa;font-size:.95rem}
+@media(max-width:800px){.three{grid-template-columns:1fr}.f{border:0;margin:0;padding:32px 0;border-bottom:1px solid var(--line)}}
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,80px)}
+.info dl{margin:32px 0;display:grid;gap:26px}
+.info dt{font:600 .7rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin-bottom:8px}
+.info dd{margin:0;font:500 1.45rem/1.35 var(--serif)}
+.map{min-height:340px;background:#e6e1d5;position:relative;overflow:hidden;display:grid;place-items:center}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:relative;background:var(--black);color:var(--gold);padding:14px 22px;font:600 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.warn{display:inline-block;background:rgba(201,164,92,.18);padding:2px 8px;font:600 .62rem var(--sans);letter-spacing:.08em;vertical-align:middle;margin-left:8px;color:#7a5d1f}
+@media(max-width:800px){.loc{grid-template-columns:1fr}}
+/* order */
+.order{background:var(--gold);color:var(--black);text-align:center}
+.order h2{font-size:clamp(2.4rem,6.4vw,5.4rem);max-width:15em;margin:0 auto 44px}
+.order .cta{justify-content:center}
+.order .btn{border-color:var(--black);color:var(--black)}
+.order .btn.dark{background:var(--black);color:var(--gold)}
+.order .btn.dark:hover,.order .btn:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+/* footer */
+footer{padding:80px 0 40px;border-top:1px solid var(--line)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:40px;margin-bottom:56px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.9rem;color:#bdb7aa}
+footer a:hover{color:var(--gold)}
+footer h4{margin:0 0 16px;font:600 .7rem var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.legal{border:1px solid var(--line);padding:28px;margin-bottom:40px;font-size:.92rem;color:#cfc9bc}
+.legal h3{font-size:1.8rem;margin-bottom:10px}
+.bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--grey);padding-top:28px;border-top:1px solid var(--line)}
+.bottom button{background:none;border:0;color:inherit;font:inherit;cursor:pointer;padding:0;margin-left:18px}
+.bottom button:hover{color:var(--gold)}
+@media(max-width:800px){.fgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="crisp" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05 .06" numOctaves="3" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter>
+<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="2" result="t"/><feColorMatrix in="t" type="matrix" values="0 0 0 0 .3  0 0 0 0 .18  0 0 0 0 .05  0 0 0 .55 -.18"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+</defs></svg>
+<div id="root"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+const { useState, useEffect } = React;
+const html = htm.bind(React.createElement);
+
+/* ============================================================
+   KONFIGURATION – HIER BEARBEITEN
+   ============================================================ */
+const BRAND = { name: 'ASTORY', short: 'Astory', tagline: 'Korean Crunch. Berlin Soul.' };
+
+/* ⚠ PLATZHALTER-URLs – vor Veröffentlichung ersetzen */
+const LINKS = {
+  lieferando: 'https://www.lieferando.de/EDIT-ME',
+  takeaway: 'tel:+4900000000000',
+  maps: 'https://www.google.com/maps/search/?api=1&query=Berlin',
+  directions: 'https://www.google.com/maps/dir/?api=1&destination=Berlin',
+  instagram: 'https://www.instagram.com/EDIT-ME',
+};
+
+/* ⚠ PLATZHALTER-DATEN – keine echten Angaben */
+const LOCATION = {
+  address: ['[Straße Hausnummer]', '[PLZ] Berlin'],
+  hours: ['Mo–Do: [00:00–00:00]', 'Fr–Sa: [00:00–00:00]', 'So: [00:00–00:00]'],
+  phone: '+49 (0) 00 0000 0000',
+  email: 'info@example.de',
+};
+
+/* Bilder: eigene, lizenzierte Fotos als URL in "img" eintragen (z. B. '/images/original.jpg').
+   Leer = Platzhalter-Illustration. */
+const IMAGES = { hero: '', story: '' };
+
+/* ⚠ BEISPIEL-PRODUKTE mit Platzhalter-Preisen – keine verifizierten Angaben (Zutaten, Allergene) */
+const CATEGORIES = [
+  { id: 'all', label: 'Alle' },
+  { id: 'original', label: 'Original Chicken' },
+  { id: 'soy', label: 'Soy Garlic Chicken' },
+  { id: 'spicy', label: 'Spicy Korean Chicken' },
+  { id: 'butter', label: 'Garlic Butter Chicken' },
+  { id: 'bibimbap', label: 'Bulgogi Bibimbap' },
+  { id: 'drinks', label: 'Drinks' },
+];
+const MENU = [
+  { id: 1, cat: 'original', name: 'Original Crunch', desc: 'Doppelt gebackenes Hähnchen mit klassisch knuspriger Kruste. Der Einstieg in die Welt des K-Fried-Chicken.', price: 12.9, best: true, img: '' },
+  { id: 2, cat: 'original', name: 'Original Wings', desc: 'Knusprige Wings, pur serviert, ideal zum Teilen.', price: 9.9, img: '' },
+  { id: 3, cat: 'soy', name: 'Soy Garlic', desc: 'Glänzende Sojasoße mit Knoblauchnote, süß-herzhaft und tief im Geschmack.', price: 13.9, best: true, img: '' },
+  { id: 4, cat: 'spicy', name: 'Spicy Seoul', desc: 'Würzige Gochujang-inspirierte Glasur für alle, die es feurig mögen.', price: 13.9, img: '' },
+  { id: 5, cat: 'butter', name: 'Garlic Butter', desc: 'Knuspriges Hähnchen mit aromatischer Knoblauchbutter, mild und cremig.', price: 14.5, img: '' },
+  { id: 6, cat: 'bibimbap', name: 'Bulgogi Bibimbap', desc: 'Reisschale mit mariniertem Rindfleisch, buntem Gemüse und Soße zum Verrühren.', price: 14.9, img: '' },
+  { id: 7, cat: 'drinks', name: 'Hausgemachte Limonade', desc: 'Erfrischendes Getränk, perfekt zur würzigen Küche. Sorten nach Angebot.', price: 4.5, img: '' },
+  { id: 8, cat: 'drinks', name: 'Softgetränke', desc: 'Auswahl an klassischen Softdrinks. Sortiment bitte ergänzen.', price: 3.5, img: '' },
+];
+const eur = n => new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(n);
+const go = id => e => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); };
+
+/* ============================================================
+   KOMPONENTEN
+   ============================================================ */
+const GOLD = ['#e0a64a', '#c47f2a', '#8a4f14'];
+const PAL = { original: GOLD, soy: ['#8a4a22', '#5a2a10', '#2f1608'], spicy: ['#e0652a', '#b5381a', '#6e1a0a'], butter: ['#f0c264', '#d9953a', '#9a5f1a'] };
+
+function Piece({ x, y, r, rot, c }) {
+  return html`<g transform=${`translate(${x} ${y}) rotate(${rot})`}>
+    <g filter="url(#crisp)">
+      <ellipse rx=${r * 1.35} ry=${r} fill=${c[2]}/>
+      <ellipse rx=${r * 1.25} ry=${r * .88} cy="-3" fill=${c[1]}/>
+      <ellipse rx=${r * 1.05} ry=${r * .68} cy="-8" fill=${c[0]}/>
+    </g>
+    <ellipse rx=${r * 1.2} ry=${r * .85} filter="url(#grain)" fill="#fff" opacity=".9"/>
+    <ellipse rx=${r * .5} ry=${r * .2} cx=${-r * .25} cy=${-r * .45} fill="#fff" opacity=".16"/>
+  </g>`;
+}
+function FoodArt({ kind = 'original', hero }) {
+  const c = PAL[kind] || GOLD;
+  let body;
+  if (kind === 'bibimbap') {
+    const cols = ['#c0392b', '#7aa04a', '#e8c24a', '#f2ecdc', '#6b3a1c'];
+    body = html`<g><ellipse cx="200" cy="215" rx="130" ry="46" fill="#0b0b0b"/><ellipse cx="200" cy="190" rx="130" ry="82" fill="#2a2a28"/><ellipse cx="200" cy="186" rx="116" ry="72" fill="#f2ecdc"/>
+      ${cols.map((col, i) => html`<path key=${i} filter="url(#crisp)" fill=${col} d=${`M200 186 L${200 + 112 * Math.cos(i * 1.2566)} ${186 + 70 * Math.sin(i * 1.2566)} A116 72 0 0 1 ${200 + 112 * Math.cos((i + 1) * 1.2566)} ${186 + 70 * Math.sin((i + 1) * 1.2566)}Z`}/>`)}
+      <circle cx="200" cy="184" r="20" fill="#f6d36b" filter="url(#crisp)"/></g>`;
+  } else if (kind === 'drinks') {
+    body = html`<g><path d="M150 90 L250 90 L238 270 Q200 285 162 270Z" fill="#e8b94a" opacity=".85"/><path d="M155 120 L245 120 L238 270 Q200 285 162 270Z" fill="#d98e2a"/>
+      <rect x="168" y="150" width="30" height="30" rx="5" fill="#fff" opacity=".35" transform="rotate(14 183 165)"/><rect x="208" y="190" width="26" height="26" rx="5" fill="#fff" opacity=".3" transform="rotate(-10 220 200)"/>
+      <path d="M215 60 L232 100" stroke="#C9A45C" stroke-width="7" stroke-linecap="round"/></g>`;
+  } else {
+    body = html`<g>
+      <ellipse cx="200" cy="262" rx="150" ry="26" fill="#000" opacity=".4"/>
+      <${Piece} x=${130} y=${200} r=${58} rot=${-24} c=${c}/>
+      <${Piece} x=${268} y=${192} r=${56} rot=${22} c=${c}/>
+      <${Piece} x=${200} y=${150} r=${64} rot=${-4} c=${c}/>
+      ${kind === 'spicy' && html`<g fill="#7a1408"><circle cx="165" cy="120" r="5"/><circle cx="245" cy="130" r="4"/><circle cx="200" cy="215" r="5"/></g>`}
+      ${kind === 'soy' && html`<g fill="#e8dcc0"><circle cx="180" cy="130" r="3"/><circle cx="225" cy="145" r="3"/><circle cx="150" cy="185" r="3"/><circle cx="262" cy="180" r="3"/></g>`}
+    </g>`;
+  }
+  return html`<svg viewBox="0 0 400 320" role="img" aria-label=${'Illustration: ' + kind} preserveAspectRatio=${hero ? 'xMidYMid meet' : 'xMidYMid slice'}>${hero && html`<circle cx="200" cy="170" r="190" fill="none" stroke="#C9A45C" stroke-width=".6" opacity=".6"/><circle cx="200" cy="170" r="165" fill="none" stroke="#C9A45C" stroke-width=".4" opacity=".4"/>`}${body}</svg>`;
+}
+
+function Nav() {
+  const [solid, setSolid] = useState(false);
+  const [open, setOpen] = useState(false);
+  useEffect(() => { const f = () => setSolid(window.scrollY > 40); f(); window.addEventListener('scroll', f, { passive: true }); return () => window.removeEventListener('scroll', f); }, []);
+  const items = [['home', 'Home'], ['menu', 'Menü'], ['story', 'Our Story'], ['location', 'Standort'], ['contact', 'Kontakt']];
+  const click = id => e => { setOpen(false); go(id)(e); };
+  return html`<nav className=${solid || open ? 'solid' : ''} aria-label="Hauptnavigation"><div className="wrap nav-in">
+    <a href="#home" className="logo" onClick=${click('home')} aria-label=${BRAND.name + ' Startseite'}>${BRAND.name.slice(0, -1)}<i>${BRAND.name.slice(-1)}</i></a>
+    <button className=${'burger' + (open ? ' open' : '')} aria-label="Menü öffnen" aria-expanded=${open} aria-controls="links" onClick=${() => setOpen(!open)}><span/><span/><span/></button>
+    <div id="links" className=${'links' + (open ? ' open' : '')}>
+      ${items.map(([id, t]) => html`<a key=${id} className="l" href=${'#' + id} onClick=${click(id)}>${t.toUpperCase()}</a>`)}
+      <a className="btn gold" href="#order" onClick=${click('order')}>Jetzt bestellen</a>
+    </div></div></nav>`;
+}
+
+function Hero() {
+  return html`<header id="home" className="hero"><div className="wrap hero-grid">
+    <div>
+      <div className="tag">${BRAND.tagline}</div>
+      <h1>The Art of Korean Crunch.</h1>
+      <p className="sub">Authentisches Korean Fried Chicken. Gemacht für Berlin.</p>
+      <div className="cta"><a className="btn gold" href="#menu" onClick=${go('menu')}>Menü entdecken</a><a className="btn ghost" href="#order" onClick=${go('order')}>Jetzt bestellen</a></div>
+    </div>
+    <div className="hero-art">${IMAGES.hero ? html`<img src=${IMAGES.hero} alt="Knuspriges Korean Fried Chicken" style=${{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }}/>` : html`<${FoodArt} kind="original" hero/>`}<div className="stamp" aria-hidden="true">Seoul<br/>× Berlin</div></div>
+  </div></header>`;
+}
+
+function Card({ p, i }) {
+  return html`<article className="card" style=${{ animationDelay: i * 60 + 'ms' }}>
+    <div className="ph">${p.img ? html`<img src=${p.img} alt=${p.name} loading="lazy"/>` : html`<${FoodArt} kind=${p.cat}/>`}${p.best && html`<span className="badge">Bestseller</span>`}</div>
+    <div className="card-b"><div className="row"><h3>${p.name}</h3><span className="price">${eur(p.price)}</span></div><p>${p.desc}</p><span className="ex">BEISPIELPRODUKT · PLATZHALTER-PREIS</span></div>
+  </article>`;
+}
+function Menu() {
+  const [cat, setCat] = useState('all');
+  const list = MENU.filter(m => cat === 'all' || m.cat === cat);
+  return html`<section id="menu" className="light"><div className="wrap">
+    <div className="head"><h2>Signature Menü</h2><p className="note">Beispiel-Menü mit Platzhalter-Preisen. Zutaten, Allergene und Preise sind nicht verifiziert und müssen vor Veröffentlichung ersetzt werden.</p></div>
+    <div className="filters" role="group" aria-label="Menü filtern">${CATEGORIES.map(c => html`<button key=${c.id} className="chip" aria-pressed=${cat === c.id} onClick=${() => setCat(c.id)}>${c.label}</button>`)}</div>
+    <div className="grid" aria-live="polite">${list.map((p, i) => html`<${Card} key=${cat + p.id} p=${p} i=${i}/>`)}</div>
+  </div></section>`;
+}
+
+function Story() {
+  return html`<section id="story"><div className="wrap story">
+    <div><h2>More than just chicken.</h2></div>
+    <div>
+      <p className="big">Knusprig außen, saftig innen, mutig im Geschmack.</p>
+      <p>Korean Fried Chicken ist in Seoul längst Kult: eine feine, extra knusprige Kruste, glänzende Glasuren und Aromen zwischen süß, herzhaft und scharf. Es wird geteilt, gefeiert und mit Freunden genossen.</p>
+      <p>${BRAND.short} lässt sich von dieser Streetfood-Kultur inspirieren und bringt sie nach Berlin: ein Ort für alle, die Crunch, Würze und gutes Essen lieben.</p>
+    </div></div></section>`;
+}
+
+const ICONS = {
+  a: html`<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M24 5v38M5 24h38M11 11c8 8 18 8 26 0M11 37c8-8 18-8 26 0"/></svg>`,
+  b: html`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30l6-8 6 8 6-12 6 12 6-8 6 8M6 40h36"/></svg>`,
+  c: html`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5c4 8 14 12 14 24a14 14 0 0 1-28 0c0-6 4-9 6-13 2 3 3 4 5 4 2-6 1-11 3-15z"/></svg>`,
+};
+function Why() {
+  const F = [['a', 'Korean Inspiration', 'Inspiriert von der Streetfood-Kultur Seouls und ihrer Liebe zu Fried Chicken.'], ['b', 'Crispy Perfection', 'Der Crunch steht im Mittelpunkt: eine Textur, die man hört.'], ['c', 'Bold Flavors', 'Von mild bis feurig: Glasuren mit Charakter für jeden Geschmack.']];
+  return html`<section className="why" id="why"><div className="wrap"><div className="head"><h2>Warum ${BRAND.short}</h2></div>
+    <div className="three">${F.map(([k, t, d]) => html`<div className="f" key=${k}>${ICONS[k]}<h3>${t}</h3><p>${d}</p></div>`)}</div></div></section>`;
+}
+
+function Location() {
+  return html`<section id="location" className="light"><div className="wrap loc">
+    <div className="info"><h2 style=${{ fontSize: 'clamp(2.4rem,5.5vw,4.4rem)' }}>Besuchen Sie uns</h2>
+      <dl>
+        <div><dt>Adresse<span className="warn">PLATZHALTER</span></dt><dd>${LOCATION.address.map((l, i) => html`<div key=${i}>${l}</div>`)}</dd></div>
+        <div><dt>Öffnungszeiten<span className="warn">PLATZHALTER</span></dt><dd style=${{ fontSize: '1.15rem' }}>${LOCATION.hours.map((l, i) => html`<div key=${i}>${l}</div>`)}</dd></div>
+        <div><dt>Telefon<span className="warn">PLATZHALTER</span></dt><dd>${LOCATION.phone}</dd></div>
+      </dl>
+      <div className="cta"><a className="btn gold" style=${{ background: '#111', color: '#C9A45C', borderColor: '#111' }} href=${LINKS.directions} target="_blank" rel="noopener">Route planen</a><a className="btn ghost" href=${LINKS.maps} target="_blank" rel="noopener">In Google Maps öffnen</a></div></div>
+    <div className="map" role="img" aria-label="Kartenplatzhalter"><svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g stroke="#fff" stroke-width="10" fill="none"><path d="M-10 90L410 60M-10 250L410 220M110 -10L150 350M290 -10L260 350"/></g><g stroke="#cfc8b6" stroke-width="3" fill="none"><path d="M-10 170L410 150M200 -10L205 350"/></g><path d="M330 340C320 280 360 250 410 240V340Z" fill="#c9d3c0"/></svg><div className="pin">${BRAND.short} · Berlin</div></div>
+  </div></section>`;
+}
+
+function Order() {
+  return html`<section id="order" className="order"><div className="wrap">
+    <h2>Your Korean chicken fix is just one click away.</h2>
+    <div className="cta"><a className="btn dark" href=${LINKS.lieferando} target="_blank" rel="noopener">Bestellen via Lieferando</a><a className="btn" href=${LINKS.takeaway}>Abholung / Takeaway</a></div>
+  </div></section>`;
+}
+
+function Footer() {
+  const [legal, setLegal] = useState(null);
+  const L = { impressum: 'Impressum', datenschutz: 'Datenschutz' };
+  return html`<footer id="contact"><div className="wrap">
+    <div className="fgrid">
+      <div><div className="logo" style=${{ marginBottom: 14 }}>${BRAND.name.slice(0, -1)}<i>${BRAND.name.slice(-1)}</i></div><p style=${{ color: '#bdb7aa', margin: 0, fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1.25rem' }}>${BRAND.tagline}</p></div>
+      <div><h4>Navigation</h4><ul>${[['home', 'Home'], ['menu', 'Menü'], ['story', 'Our Story'], ['location', 'Standort'], ['order', 'Bestellen']].map(([id, t]) => html`<li key=${id}><a href=${'#' + id} onClick=${go(id)}>${t}</a></li>`)}</ul></div>
+      <div><h4>Kontakt <span className="warn">PLATZHALTER</span></h4><ul><li>${LOCATION.address.join(', ')}</li><li>${LOCATION.phone}</li><li>${LOCATION.email}</li><li><a href=${LINKS.instagram} target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    ${legal && html`<div className="legal" id="legal"><h3>${L[legal]}</h3><p><strong>⚠ Platzhalter.</strong> Hier müssen die rechtlich vorgeschriebenen Angaben des Betreibers eingefügt werden (${legal === 'impressum' ? 'z. B. nach § 5 DDG' : 'z. B. nach DSGVO'}). Bitte von einer Rechtsberatung oder einem Generator prüfen lassen. Es werden keine erfundenen Angaben gezeigt.</p><button className="btn ghost" onClick=${() => setLegal(null)}>Schließen</button></div>`}
+    <div className="bottom"><span>© ${new Date().getFullYear()} ${BRAND.short}. Alle Rechte vorbehalten.</span><span><button onClick=${() => setLegal('impressum')}>Impressum</button><button onClick=${() => setLegal('datenschutz')}>Datenschutz</button></span></div>
+  </div></footer>`;
+}
+
+function App() {
+  return html`<${React.Fragment}><${Nav}/><main><${Hero}/><${Menu}/><${Story}/><${Why}/><${Location}/><${Order}/></main><${Footer}/><//>`;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App}/>`);
+</script>
+</body>
+</html>
